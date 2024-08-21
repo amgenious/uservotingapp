@@ -20,6 +20,7 @@ const QueryElections = () => {
   const {user}=useUser()
   const [data2, setData2] = useState(false);
   const [data3, setData3] = useState(false);
+  const [data4, setData4] = useState(false);
     const [uniquecode, setUniquecode] = useState("")
     const [data, setData] = useState([]);
     const [loading, setLoading] = useState(false);
@@ -37,13 +38,12 @@ const QueryElections = () => {
           snapShot.docs.forEach((doc) => {
               const data = doc.data();
               const endDateAndTime = new Date(data.enddateandtime);
-  
-              // Check if the current date and time is greater than the end date and time
               if (currentDateTime > endDateAndTime) {
                   data.statusMessage = "Election ended";
+                  setData4(true)
+              }else{
+                list.push({ id: doc.id, ...data });
               }
-  
-              list.push({ id: doc.id, ...data });
           });
   
           setData(list);
@@ -55,7 +55,6 @@ const QueryElections = () => {
       };
   }
       const checkvalidity =async ()=>{
-        console.log(Date.now())
         const colRef = collection(db, 'votes');
         const q = query(
             colRef,
@@ -86,6 +85,9 @@ const QueryElections = () => {
         </div> :<></>
       }
        <Card className='p-3 border-none'>
+      {
+       data4 ? <><p>Election has ended</p></>:<></>
+      }
         {
           data2 ? <><p>Not eligible to vote</p></>:<></>
         }
