@@ -45,7 +45,6 @@ const QueryElections = () => {
                 list.push({ id: doc.id, ...data });
               }
           });
-  
           setData(list);
           setLoading(false);
       });
