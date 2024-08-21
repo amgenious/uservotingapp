@@ -149,7 +149,7 @@ const VotePage:React.FC<VoteProps> =({uniqueid})=> {
                       {item.name}
                     </DialogTitle>
                   </DialogTrigger>
-                  <DialogContent className="w-fit h-fit">
+                  <DialogContent className="w-full">
                     <DialogHeader>
                       <DialogTitle>{item.noc}</DialogTitle>
                     </DialogHeader>

@@ -178,7 +178,7 @@ const QueryResults = () => {
                             {item.name}
                           </DialogTitle>
                         </DialogTrigger>
-                        <DialogContent className="w-fit">
+                        <DialogContent className="w-full">
                           <DialogHeader>
                             <DialogTitle>{item.noc}</DialogTitle>
                           </DialogHeader>
